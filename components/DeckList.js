@@ -2,16 +2,16 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import Deck from './Deck'
 
-// TODO Navigate to each deck.
-
 const list = ["Number1", "Number2", "Number3"]
 
 class DeckList extends React.Component{
+    switchToDeck = (deck) => {
+         this.props.navigation.navigate('Deck')
+    }
     render(){
         return(
             <View>
-                <Deck/>
-                <Deck/>
+                <Text> This is it</Text>
             </View>
         )
     }
