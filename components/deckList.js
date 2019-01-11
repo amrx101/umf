@@ -3,6 +3,9 @@ import { Text, View, FlatList, ScrollView } from 'react-native';
 import { List, ListItem } from 'react-native-elements'
 
 
+/*
+This data will be ultimately fetched from the store.
+*/
 const deck1 = {
     name: 'Deck1',
     Questions: 3,
