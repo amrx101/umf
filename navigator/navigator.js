@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
 import DeckList from '../components/deckList';
 import AddDeck from '../components/addDeck';
-import { FontAwesome, Ionicons } from '@expo/vector-icons'
+import { FontAwesome } from '@expo/vector-icons'
 
 
 const Tabs = createBottomTabNavigator({
