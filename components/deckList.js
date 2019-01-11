@@ -33,13 +33,13 @@ class DeckList extends React.Component{
         return (
             <ScrollView>
                 <List>
-                {Decks.map((deck) => (
-                    <ListItem
-                    key={deck.name}
-                    title={deck.name}
-                    subtitle={deck.Questions}
-                    />
-                ))}
+                    {Decks.map((deck) => (
+                        <ListItem
+                        key={deck.name}
+                        title={deck.name}
+                        subtitle={deck.Questions}
+                        />
+                    ))}
                 </List>
             </ScrollView>
         )
