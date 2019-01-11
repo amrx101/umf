@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import Deck from './Deck'
 
 const list = ["Number1", "Number2", "Number3"]
 
