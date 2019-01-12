@@ -9,6 +9,9 @@ import { FontAwesome } from '@expo/vector-icons';
 const PageNav = createStackNavigator({
   Decks: {
     screen: DeckList,
+    navigationOptions: {
+      title: 'Decks'
+    }
   },
   DeckDetails: {
     screen: Deck,

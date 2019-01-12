@@ -21,8 +21,8 @@ const Decks = [deck1, deck2]
 class DeckList extends React.Component{
 
     switchToDeck = (deck) => {
-         this.props.navigation.navigate('Deck')
-    }
+         this.props.navigation.navigate('DeckDetails', deck)
+    };
 
     renderRow = ({deck}) => {
         console.log("Deck", deck);
@@ -30,7 +30,7 @@ class DeckList extends React.Component{
             title={deck.name}
             subtitle={deck.Questions}
         </ListItem>
-    }
+    };
 
     render() {
         return (
@@ -38,15 +38,16 @@ class DeckList extends React.Component{
                 <List>
                     {Decks.map((deck) => (
                         <ListItem
-                        key={deck.name}
-                        title={deck.name}
-                        subtitle={deck.Questions}
+                            key={deck.name}
+                            title={deck.name}
+                            subtitle={deck.Questions}
+                            onPress={() => this.switchToDeck(deck)}
                         />
                     ))}
                 </List>
             </ScrollView>
         )
-    }
+    };
 }
 
 

@@ -2,6 +2,13 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default class Deck extends React.Component {
+
+  static navigationOptions = ({ navigation }) => ({
+    title: `${navigation.state.params.name}`,
+    fontSize: 18,
+    backgroundColor: '#ccc',
+  })
+
   render() {
     onPressLearnMore = (e) => {
       console.log(e)
@@ -10,12 +17,12 @@ export default class Deck extends React.Component {
     return (
       <View style={styles.container}>
         <Text>This is Deck</Text>
-        <Button>
-          onPress={onPressLearnMore}
-          title="Add Deck"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        </Button>
+          <Button
+            onPress={onPressLearnMore}
+            title="Learn More"
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+          />
       </View>
     );
   }
