@@ -27,7 +27,22 @@ let data = {
         ]
     }
 };
-
+/*
+{
+	"Python": {
+		"title": "Python",
+		"questions": [{
+				"question": "A",
+				"answer": "B"
+			},
+			{
+				"question": "C",
+				"answer": "D"
+			}
+		]
+	}
+}
+*/
 
 export function initData(){
     AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(data))
@@ -44,6 +59,16 @@ export function getDecks(){
 
 export function addDeck(deck){
     return AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify(deck))
+}
+
+export function deleteDeck(key) {
+    return AsyncStorage.getItem(DECKS_STORAGE_KEY)
+        .then((results) => {
+            const data = JSON.parse(results)
+            data[key] = undefined
+            delete data[key]
+            AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(data))
+    })
 }
 
 export function addCard({deck, card}){
