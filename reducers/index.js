@@ -2,7 +2,7 @@ import { RECEIVE_DECKS, DELETE_DECK, ADD_DECK } from '../actions/decks'
 import { ADD_QUESTION } from '../actions/card'
 import { combineReducers } from 'redux'
 
-function handleDeckData(state={}, action){
+function decks(state={}, action){
     switch (action.type){
         case RECEIVE_DECKS:
             return {
@@ -35,4 +35,4 @@ function handleDeckData(state={}, action){
     }
 }
 
-export default combineReducers({handleDeckData,})
+export default combineReducers({decks,})

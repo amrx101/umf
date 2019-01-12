@@ -8,21 +8,21 @@ export function receiveDecks(decks) {
     }
 }
 
-export function ADD_DECK(deck) {
+export function addDeck(deck) {
     return {
         type: ADD_DECK,
         deck,
     }
 }
 
-export function DELETE_DECK(id){
+export function deleteDeck(id){
     return {
         type: DELETE_DECK,
         id,
     }
 }
 
-export function ADD_QUESTION(question){
+export function addQuestion(question){
     return{
         type: ADD_DECK,
         question,

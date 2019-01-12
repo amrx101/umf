@@ -52,7 +52,7 @@ export function initData(){
 export function getDecks(){
     return AsyncStorage.getItem(DECKS_STORAGE_KEY).then(
         results => {
-            return results !== nil ? JSON.parse(results): initData()
+            return results === null ? initialData() : JSON.parse(results)
         }
     );
 }

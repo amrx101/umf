@@ -1,6 +1,9 @@
 import React from 'react';
 import { Text, View, FlatList, ScrollView } from 'react-native';
 import { List, ListItem } from 'react-native-elements'
+import { connect } from 'react-redux';
+import { receiveDecks } from '../actions/index';
+import {getDecks} from '../utils/api';
 
 
 /*
@@ -20,11 +23,30 @@ const Decks = [deck1, deck2]
 
 class DeckList extends React.Component{
 
+    state = {
+        ready : false,
+    }
+
+    componentDidMount(){
+        const {dispatch} = this.props
+        getDecks().then(decks => dispatch(receiveDecks(decks)))
+            .then(() => this.setState(() => ({ready: true})));
+
+    }
+
     switchToDeck = (deck) => {
          this.props.navigation.navigate('DeckDetails', deck)
     };
 
     render() {
+        const {ready} = this.state
+        if (ready === false){
+            return (
+                <View>
+                    <Text> Loding </Text>
+                </View>
+            )
+        }
         return (
             <ScrollView>
                 <List>
@@ -43,5 +65,12 @@ class DeckList extends React.Component{
 }
 
 
+function matchStateToProps({decks}){
+    return{
+        decks: decks,
+    }
+}
 
-export default DeckList
+
+
+export default connect(matchStateToProps)(DeckList)
