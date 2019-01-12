@@ -8,12 +8,12 @@ This data will be ultimately fetched from the store.
 */
 const deck1 = {
     name: 'Deck1',
-    Questions: 3,
+    Questions: [3],
 }
 
 const deck2 = {
     name: 'Deck2',
-    Questions: 2
+    Questions: [2]
 }
 
 const Decks = [deck1, deck2]
@@ -32,7 +32,7 @@ class DeckList extends React.Component{
                         <ListItem
                             key={deck.name}
                             title={deck.name}
-                            subtitle={deck.Questions}
+                            subtitle={deck.Questions.length}
                             onPress={() => this.switchToDeck(deck)}
                         />
                     ))}
