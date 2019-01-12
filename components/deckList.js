@@ -47,14 +47,18 @@ class DeckList extends React.Component{
                 </View>
             )
         }
+        const {decks} = this.props
+        const Decks = Object.values(decks)
+        debugger
+
         return (
             <ScrollView>
                 <List>
                     {Decks.map((deck) => (
                         <ListItem
-                            key={deck.name}
-                            title={deck.name}
-                            subtitle={deck.Questions.length}
+                            key={deck.title}
+                            title={deck.title}
+                            subtitle={deck.questions.length}
                             onPress={() => this.switchToDeck(deck)}
                         />
                     ))}

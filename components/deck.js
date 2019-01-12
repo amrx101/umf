@@ -6,7 +6,7 @@ import { Button } from 'react-native-elements';
 export default class Deck extends React.Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: `${navigation.state.params.name}`,
+    title: `${navigation.state.params.title}`,
     fontSize: 18,
     backgroundColor: '#ccc',
   })
@@ -45,7 +45,7 @@ export default class Deck extends React.Component {
     return (
       <View style={styles.container}>
         <Text>{params.name}</Text>
-        <Text>Number of Decks: {params.Questions}</Text>
+        <Text>Number of Cards: {params.questions.length}</Text>
         {this.renderButton("ADD QUESTION", this.navigateToAdd)}
         {this.renderButton("START QUIZ", this.navigateToQuiz)}
       </View>
