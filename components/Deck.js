@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 export default class Deck extends React.Component {
@@ -12,23 +11,20 @@ export default class Deck extends React.Component {
     backgroundColor: '#ccc',
   })
 
-  onPressLearnMore = (e) => {
+  navigateToQuiz = (e) => {
     console.log(e)
   };
 
-  renderButton = (name) => {
+  navigateToAdd = (e) => {
+    console.log(e)
+  };
+
+  renderButton = (name, callable) => {
     return(
       <View style={{padding:10}}>
         <Button
-            icon={
-              <Icon
-                name='arrow-right'
-                size={15}
-                color='red'
-              />
-            }
             title={name}
-            onPress={this.onPressLearnMore}
+            onPress={callable}
             buttonStyle={{
               backgroundColor: "rgba(92, 99,216, 1)",
               width: 300,
@@ -50,8 +46,8 @@ export default class Deck extends React.Component {
       <View style={styles.container}>
         <Text>{params.name}</Text>
         <Text>Number of Decks: {params.Questions}</Text>
-        {this.renderButton("ADD CARD")}
-        {this.renderButton("START QUIZ")}
+        {this.renderButton("ADD CARD", this.navigateToAdd)}
+        {this.renderButton("START QUIZ", this.navigateToQuiz)}
       </View>
     );
   }
