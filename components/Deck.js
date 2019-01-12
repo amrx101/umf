@@ -9,16 +9,16 @@ export default class Deck extends React.Component {
     backgroundColor: '#ccc',
   })
 
-  render() {
-    onPressLearnMore = (e) => {
-      console.log(e)
-    }
+  onPressLearnMore = (e) => {
+    console.log(e)
+  };
 
+  render() {
     return (
       <View style={styles.container}>
         <Text>This is Deck</Text>
           <Button
-            onPress={onPressLearnMore}
+            onPress={this.onPressLearnMore}
             title="Learn More"
             color="#841584"
             accessibilityLabel="Learn more about this purple button"
