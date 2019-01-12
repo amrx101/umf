@@ -1,4 +1,4 @@
-import { RECEIVE_DECKS, DELETE_DECKS, ADD_DECK} from './decks'
+import { RECEIVE_DECKS, DELETE_DECK, ADD_DECK} from './decks'
 import { ADD_QUESTION } from './card'
 
 export function receiveDecks(decks) {
@@ -15,10 +15,10 @@ export function ADD_DECK(deck) {
     }
 }
 
-export function DELETE_DECK(deck){
+export function DELETE_DECK(id){
     return {
         type: DELETE_DECK,
-        deck,
+        id,
     }
 }
 
