@@ -37,6 +37,8 @@ class AddQuestion extends React.Component{
     }
 
     renderButton = (name, callable) => {
+        const {question, answer} = this.state
+        const isEnabled = question.length > 0 && answer.length > 0
         return(
             <View>
                 <Button
@@ -51,6 +53,7 @@ class AddQuestion extends React.Component{
                         borderRadius: 5,
                         padding: 10
                     }}
+                    disabled={!isEnabled}
                     
                 />
             </View>
