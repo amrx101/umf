@@ -1,14 +1,14 @@
 import React   from 'react'
 import {Text, View} from 'react-native'
-import { FormLabel, FormInput } from 'react-native-elements'
+import { FormLabel, FormInput, Button } from 'react-native-elements'
 
 class AddDeck extends React.Component {
     state = {
-        name: ''
+        title: ''
     }
 
-    setName = (text) => {
-        this.setState({name: text})
+    setTitle = (text) => {
+        this.setState({title: text})
     }
 
     createDeck = (e) => {
@@ -28,14 +28,38 @@ class AddDeck extends React.Component {
         )
     }
 
-    
+    renderButton = (name, callable) => {
+        const {title} = this.state
+        const isEnabled = title.length > 0
+        return(
+            <View>
+                <Button
+                    title={name}
+                    onPress={callable}
+                    buttonStyle={{
+                        backgroundColor: "rgba(92, 99,216, 1)",
+                        width: 300,
+                        height: 45,
+                        borderColor: "transparent",
+                        borderWidth: 0,
+                        borderRadius: 5,
+                        padding: 10
+                    }}
+                    disabled={!isEnabled}
+                    
+                />
+            </View>
+        )
+
+    }
 
 
     render(){
         return(
             <View>
                 <Text> This is AddDeck Page. </Text>
-                {this.renderForm("Name of the Deck", this.setName, this.state.name)}
+                {this.renderForm("Name of the Deck", this.setTitle, this.state.title)}
+                {this.renderButton("New Deck", this.createDeck)}
             </View>
         )
     }
