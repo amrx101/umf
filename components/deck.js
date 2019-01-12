@@ -11,8 +11,8 @@ export default class Deck extends React.Component {
     backgroundColor: '#ccc',
   })
 
-  navigateToQuiz = (e) => {
-    console.log(e)
+  navigateToQuiz = () => {
+    this.props.navigation.navigate('Quiz')
   };
 
   navigateToAdd = () => {

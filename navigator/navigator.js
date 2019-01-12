@@ -5,6 +5,7 @@ import DeckList from '../components/deckList';
 import AddDeck from '../components/addDeck';
 import Deck from '../components/deck';
 import AddQuestion from '../components/newQuestion';
+import Quiz from '../components/quiz';
 import { FontAwesome } from '@expo/vector-icons';
 
 const PageNav = createStackNavigator({
@@ -22,6 +23,12 @@ const PageNav = createStackNavigator({
     navigationOptions: {
       title: 'Add Question'
     },
+  },
+  Quiz: {
+    screen: Quiz,
+    navigationOptions: {
+      title: 'Quiz'
+    }
   }
 });
 
