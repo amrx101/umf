@@ -15,8 +15,8 @@ export default class Deck extends React.Component {
     console.log(e)
   };
 
-  navigateToAdd = (e) => {
-    console.log(e)
+  navigateToAdd = () => {
+      this.props.navigation.navigate('AddQuestion')
   };
 
   renderButton = (name, callable) => {
@@ -46,7 +46,7 @@ export default class Deck extends React.Component {
       <View style={styles.container}>
         <Text>{params.name}</Text>
         <Text>Number of Decks: {params.Questions}</Text>
-        {this.renderButton("ADD CARD", this.navigateToAdd)}
+        {this.renderButton("ADD QUESTION", this.navigateToAdd)}
         {this.renderButton("START QUIZ", this.navigateToQuiz)}
       </View>
     );
