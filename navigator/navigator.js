@@ -3,12 +3,24 @@ import { View, Text } from "react-native";
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
 import DeckList from '../components/deckList';
 import AddDeck from '../components/addDeck';
-import { FontAwesome } from '@expo/vector-icons'
+import Deck from '../components/deck';
+import { FontAwesome } from '@expo/vector-icons';
+
+const PageNav = createStackNavigator({
+  Decks: {
+    screen: DeckList,
+  },
+  DeckDetails: {
+    screen: Deck,
+  },
+});
+
+const PagesStack = createAppContainer(PageNav);
 
 
 const Tabs = createBottomTabNavigator({
   Decks: {
-    screen: DeckList, 
+    screen: PagesStack, 
     navigationOptions: {
       tabBarLabel: 'Decks',
       tabBarIcon: ({ tintColor }) => <FontAwesome name='th-list' size={30} color={tintColor} />
