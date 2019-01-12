@@ -4,7 +4,7 @@ import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-nativ
 
 
 
-class AddQuestion extends React.Component{
+class AddCard extends React.Component{
 
     state = {
         question: '',
@@ -72,4 +72,4 @@ class AddQuestion extends React.Component{
     }
 }
 
-export default AddQuestion
+export default AddCard
