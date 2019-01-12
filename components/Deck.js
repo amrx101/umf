@@ -14,9 +14,11 @@ export default class Deck extends React.Component {
   };
 
   render() {
+    const {params} = this.props.navigation.state
     return (
       <View style={styles.container}>
-        <Text>This is Deck</Text>
+        <Text>{params.name}</Text>
+        <Text>Number of Decks: {params.Questions}</Text>
           <Button
             onPress={this.onPressLearnMore}
             title="Learn More"
