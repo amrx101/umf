@@ -24,14 +24,6 @@ class DeckList extends React.Component{
          this.props.navigation.navigate('DeckDetails', deck)
     };
 
-    renderRow = ({deck}) => {
-        console.log("Deck", deck);
-        <ListItem>
-            title={deck.name}
-            subtitle={deck.Questions}
-        </ListItem>
-    };
-
     render() {
         return (
             <ScrollView>
