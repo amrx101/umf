@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
+import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
 
 
 
@@ -11,16 +11,16 @@ class AddQuestion extends React.Component{
         answer: '',
     }
 
-    someFunction = (e) => {
-        this.setState({question: e})
-    }
-
     setQuestion = (text) => {
         this.setState({question: text})
     }
 
     setAnswer = (text) => {
         this.setState({answer: text})
+    }
+
+    addQuest = (e) => {
+        console.log(e)
     }
 
     renderForm = (label, callable, field) => {
@@ -36,12 +36,34 @@ class AddQuestion extends React.Component{
         )
     }
 
+    renderButton = (name, callable) => {
+        return(
+            <View>
+                <Button
+                    title={name}
+                    onPress={callable}
+                    buttonStyle={{
+                        backgroundColor: "rgba(92, 99,216, 1)",
+                        width: 300,
+                        height: 45,
+                        borderColor: "transparent",
+                        borderWidth: 0,
+                        borderRadius: 5,
+                        padding: 10
+                    }}
+                    
+                />
+            </View>
+        )
+    }
+
     render(){
         return(
             <View>
                 <Text> This is the AddQuestion page. </Text>
                 {this.renderForm("Question", this.setQuestion, this.state.question)}
                 {this.renderForm("Answer", this.setAnswer, this.state.answer)}
+                {this.renderButton("SUBMIT", this.addQuest)}
             </View>
         )
     }
