@@ -13,7 +13,7 @@ class Deck extends React.Component {
   })
 
   navigateToQuiz = () => {
-    const {navigation} = this.props.navigation
+    const {navigation} = this.props
     navigation.navigate('Quiz')
   };
 
@@ -46,10 +46,13 @@ class Deck extends React.Component {
 
   render() {
     const {params} = this.props.navigation.state
+    const {decks} = this.props
+    let questions = decks[params.title].questions
+    console.log("QUESTIONS: ", questions)
     return (
       <View style={styles.container}>
         <Text>{params.name}</Text>
-        <Text>Number of Cards: {params.questions.length}</Text>
+        <Text>Number of Cards: {questions.length}</Text>
         {this.renderButton("ADD QUESTION", this.navigateToAdd)}
         {this.renderButton("START QUIZ", this.navigateToQuiz)}
       </View>

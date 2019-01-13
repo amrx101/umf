@@ -49,7 +49,6 @@ class DeckList extends React.Component{
         }
         const {decks} = this.props
         const Decks = Object.values(decks)
-        debugger
 
         return (
             <ScrollView>
