@@ -1,6 +1,9 @@
 import React   from 'react'
 import {Text, View} from 'react-native'
 import { FormLabel, FormInput, Button } from 'react-native-elements'
+import { createDeck } from '../utils/api'
+import {addDeck } from '../actions/index'
+import {connect} from 'react-redux'
 
 class AddDeck extends React.Component {
     state = {
@@ -11,9 +14,20 @@ class AddDeck extends React.Component {
         this.setState({title: text})
     }
 
-    createDeck = (e) => {
+    navigateToNew = (newDeck) => {
+        const deck = newDeck[this.state.title]
+        this.state.title = ''
+        this.props.navigation.navigate('DeckDetails', deck)
+    }
+
+    createDeck = () => {
         // How do we dynamically add navigation routes?
         console.log("Create New Deck and route to this deck")
+        const {title} = this.state
+        const newDeck = {[title]: {title: title, questions: []}};
+        const {dispatch} = this.props
+
+        createDeck(newDeck).then(()=> dispatch(addDeck(newDeck))).then(() => {this.navigateToNew(newDeck)})
     }
 
     renderForm = (label, callable, field) => {
@@ -65,4 +79,6 @@ class AddDeck extends React.Component {
     }
 }
 
-export default AddDeck
+
+
+export default connect()(AddDeck)

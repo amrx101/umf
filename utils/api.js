@@ -1,6 +1,6 @@
 import {AsyncStorage} from 'react-native';
 
-export const DECKS_STORAGE_KEY = 'decks:umf';
+export const DECKS_STORAGE_KEY = 'decksq:umf';
 
 let data = {
     React: {
@@ -52,12 +52,12 @@ export function initData(){
 export function getDecks(){
     return AsyncStorage.getItem(DECKS_STORAGE_KEY).then(
         results => {
-            return results === null ? initialData() : JSON.parse(results)
+            return results === null ? initData() : JSON.parse(results)
         }
     );
 }
 
-export function addDeck(deck){
+export function createDeck(deck){
     return AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify(deck))
 }
 
