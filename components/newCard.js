@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
-
+import {addCard} from '../utils/api';
+import {addQuestion} from '../actions/index'
 
 
 class AddCard extends React.Component{
@@ -20,7 +21,13 @@ class AddCard extends React.Component{
     }
 
     addQuest = (e) => {
-        console.log(e)
+        const title = this.props.navigation.state.params.title
+        const card = {
+            question: this.state.question,
+            answer: this.state.answer,
+        }
+        debugger
+        addCard({title: title, card: card})
     }
 
     renderForm = (label, callable, field) => {

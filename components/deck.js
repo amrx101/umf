@@ -18,7 +18,9 @@ export default class Deck extends React.Component {
 
   navigateToAdd = () => {
       const {navigation } = this.props
-      navigation.navigate('AddQuestion')
+      const obj = {title: this.props.navigation.state.params.title}
+
+      navigation.navigate('AddQuestion', obj)
   };
 
   renderButton = (name, callable) => {
