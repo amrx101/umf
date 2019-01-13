@@ -2,7 +2,9 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
 import {addCard} from '../utils/api';
-import {addQuestion} from '../actions/index'
+import {addQuestion, receiveDecks} from '../actions/index'
+import { connect } from 'react-redux';
+
 
 
 class AddCard extends React.Component{
@@ -22,12 +24,15 @@ class AddCard extends React.Component{
 
     addQuest = (e) => {
         const title = this.props.navigation.state.params.title
+        const {question, answer } = this.state
         const card = {
-            question: this.state.question,
-            answer: this.state.answer,
+            question: question,
+            answer: answer,
         }
-        debugger
-        addCard({title: title, card: card})
+        const {dispatch} = this.props
+        const params = {title, question, answer}
+        
+        addCard({title: title, card: card}).then(dispatch(addQuestion(params))).then(() => this.props.navigation.goBack())
     }
 
     renderForm = (label, callable, field) => {
@@ -79,4 +84,4 @@ class AddCard extends React.Component{
     }
 }
 
-export default AddCard
+export default connect()(AddCard)

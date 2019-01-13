@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-elements';
+import { connect } from 'react-redux';
 
 
-export default class Deck extends React.Component {
+class Deck extends React.Component {
 
   static navigationOptions = ({ navigation }) => ({
     title: `${navigation.state.params.title}`,
@@ -19,7 +20,6 @@ export default class Deck extends React.Component {
   navigateToAdd = () => {
       const {navigation } = this.props
       const obj = {title: this.props.navigation.state.params.title}
-
       navigation.navigate('AddQuestion', obj)
   };
 
@@ -65,3 +65,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+function matchStateToProps({decks}){
+    return{
+        decks: decks,
+    }
+}
+
+export default connect(matchStateToProps)(Deck)

@@ -22,9 +22,9 @@ export function deleteDeck(id){
     }
 }
 
-export function addQuestion(question){
+export function addQuestion(params){
     return{
         type: ADD_DECK,
-        question,
+        params,
     }
 }
