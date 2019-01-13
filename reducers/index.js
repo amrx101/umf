@@ -5,6 +5,9 @@ import { combineReducers } from 'redux'
 function decks(state={}, action){
     switch (action.type){
         case RECEIVE_DECKS:
+            debugger
+            console.log("RECIEVED...", action)
+            console.log("TYPE:", typeof action.decks)
             return {
                 ...state,
                 ...action.decks,
