@@ -12,11 +12,13 @@ export default class Deck extends React.Component {
   })
 
   navigateToQuiz = () => {
-    this.props.navigation.navigate('Quiz')
+    const {navigation} = this.props.navigation
+    navigation.navigate('Quiz')
   };
 
   navigateToAdd = () => {
-      this.props.navigation.navigate('AddQuestion')
+      const {navigation } = this.props
+      navigation.navigate('AddQuestion')
   };
 
   renderButton = (name, callable) => {
