@@ -21,12 +21,10 @@ class AddDeck extends React.Component {
     }
 
     createDeck = () => {
-        // How do we dynamically add navigation routes?
         console.log("Create New Deck and route to this deck")
         const {title} = this.state
         const newDeck = {[title]: {title: title, questions: []}};
         const {dispatch} = this.props
-
         createDeck(newDeck).then(()=> dispatch(addDeck(newDeck))).then(() => {this.navigateToNew(newDeck)})
     }
 
