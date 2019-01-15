@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
 function isEmpty(obj) {
     for (const key in obj) {
@@ -50,7 +50,7 @@ class Quiz extends React.Component{
         const {navigation} = this.props
         debugger
         const {questions} = navigation.state.params
-        const {totalQuestions, answeredQuestions, correctAnswers, currentQuestion} = this.state
+        const {totalQuestions, answeredQuestions, correctAnswers, currentQuestion, revealAnswer} = this.state
         
         console.log(questions)
         if (isEmpty(questions)){
@@ -66,7 +66,7 @@ class Quiz extends React.Component{
 
                         <View style={[styles.group, {justifyContent: 'flex-start', flex: 1}]}>
                             <View>
-                                <Text>{questionLeft} / {questions.length}</Text>
+                                <Text>{currentQuestion+1} / {questions.length}</Text>
                             </View>
                         </View>
 
@@ -158,6 +158,13 @@ class Quiz extends React.Component{
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingTop: 20,
+    }
+});
 
 
 
