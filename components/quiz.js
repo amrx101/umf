@@ -93,7 +93,7 @@ class Quiz extends React.Component{
                         <View style={{alignItems: 'center', justifyContent: 'space-around', flex: 2}}>
                             <View style={styles.container}>
 
-                                <TouchableOpacity onPress={this.onCorrect}>
+                                <TouchableOpacity onPress={this.onCorrectSubmit}>
                                     <Text style={{
                                         backgroundColor: '#70dd2f',
                                         justifyContent: 'center',
@@ -102,7 +102,7 @@ class Quiz extends React.Component{
                                         width: 200
                                     }}>Correct</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={this.onIncorrect}>
+                                <TouchableOpacity onPress={this.onIncorrectSubmit}>
                                     <Text style={{
                                         backgroundColor: '#ff463f',
                                         justifyContent: 'center',
