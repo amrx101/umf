@@ -1,6 +1,14 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
+function isEmpty(obj) {
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
 class Quiz extends React.Component{
     state = {
         totalQuestions: '',
@@ -10,7 +18,13 @@ class Quiz extends React.Component{
 
     render(){
         const {navigation} = this.props
-        console.log(navigation)
+        const {questions} = navigation.state.params.questions
+        console.log(questions)
+        if (isEmpty(questions)){
+            return(
+                <View><Text> There are no questions in the deck. </Text></View>
+            )
+        }
         return(
             <View>
                 <Text> This is Quiz </Text>
@@ -18,6 +32,8 @@ class Quiz extends React.Component{
         )
     }
 }
+
+
 
 export default Quiz
 
