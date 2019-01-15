@@ -43,7 +43,7 @@ class Quiz extends React.Component{
     }
 
     showAnswer = () => {
-        this.setState({showAnswer: true})
+        this.setState({revealAnswer: true})
     }
 
     render(){
@@ -76,16 +76,13 @@ class Quiz extends React.Component{
                                     <View style={{alignItems: 'center'}}>
                                         <Text style={{fontSize: 36}}>{questions[currentQuestion].answer}</Text>
 
-                                        <TouchableOpacity onPress={this.showAnswer}>
-                                            <Text style={{fontSize: 18, color: '#70dd2f'}}>Question</Text>
-                                        </TouchableOpacity>
-
+                                        
                                     </View>) : (
                                     <View style={{alignItems: 'center'}}>
                                         <Text style={{fontSize: 36}}>{questions[currentQuestion].question}</Text>
 
                                         <TouchableOpacity onPress={this.showAnswer}>
-                                            <Text style={{fontSize: 18, color: '#ff463f'}}>Answer</Text>
+                                            <Text style={{fontSize: 18, color: '#ff463f'}}>Answer199</Text>
                                         </TouchableOpacity>
 
                                     </View>
