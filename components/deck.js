@@ -14,7 +14,8 @@ class Deck extends React.Component {
 
   navigateToQuiz = () => {
     const {navigation} = this.props
-    navigation.navigate('Quiz')
+    const obj = {questions: navigation.state.params.questions}
+    navigation.navigate('Quiz', obj)
   };
 
   navigateToAdd = () => {
