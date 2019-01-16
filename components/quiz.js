@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Button } from 'react-native-elements';
 
 function isEmpty(obj) {
     for (const key in obj) {
@@ -97,27 +98,39 @@ class Quiz extends React.Component{
 
                         <View style={{alignItems: 'center', justifyContent: 'space-around', flex: 2}}>
                             <View style={styles.container}>
-
-                                <TouchableOpacity onPress={this.onCorrectSubmit}>
-                                    <Text style={{
-                                        backgroundColor: '#70dd2f',
-                                        justifyContent: 'center',
-                                        height: 30,
-                                        textAlign: 'center',
-                                        width: 200
-                                    }}>Correct</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={this.onIncorrectSubmit}>
-                                    <Text style={{
-                                        backgroundColor: '#ff463f',
-                                        justifyContent: 'center',
-                                        height: 30,
-                                        textAlign: 'center',
-                                        width: 200,
-                                        marginTop: 20
-                                    }}>Incorrect</Text>
-                                </TouchableOpacity>
-
+                                <View style={{padding:10}}>
+                                    <Button
+                                        title="Correct"
+                                        titleStyle={{ fontWeight: "700" }}
+                                        buttonStyle={{
+                                            backgroundColor: "green",
+                                            width: 300,
+                                            height: 45,
+                                            borderColor: "transparent",
+                                            borderWidth: 0,
+                                            borderRadius: 5
+                                        }}
+                                        onPress={this.onCorrectSubmit}
+                                        containerStyle={{ marginBottom: 20 }}
+                                    />
+                                </View>
+                                
+                                <View style={{padding:10}}>
+                                    <Button
+                                        title="Incorrect"
+                                        titleStyle={{ fontWeight: "700" }}
+                                        buttonStyle={{
+                                            backgroundColor: "red",
+                                            width: 300,
+                                            height: 45,
+                                            borderColor: "transparent",
+                                            borderWidth: 0,
+                                            borderRadius: 5
+                                        }}
+                                        onPress={this.onIncorrectSubmit}
+                                        containerStyle={{ marginTop: 20 }}
+                                    />
+                                </View>
                             </View>
 
                         </View>
