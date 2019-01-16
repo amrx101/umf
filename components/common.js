@@ -3,10 +3,10 @@ import {Button } from 'react-native-elements';
 import {View, StyleSheet} from 'react-native';
 
 class CustomButton extends React.Cumponent {
-    
+
     render(){
-        const {styleIdentifier} = this.props
-        let style = styles.default
+        const {styleIdentifier, name, callable} = this.props
+        let buttonstyle = styles.default
         if (styleIdentifier === "red") {
             buttonStyle = styles.red
         } else if (styleIdentifier === "green"){
