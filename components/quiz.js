@@ -20,7 +20,11 @@ class Quiz extends React.Component{
 
     onCorrectSubmit = () => {
         const {correctAnswers, currentQuestion} = this.state
-        this.setState({correctAnswers: correctAnswers +1, currentQuestion: currentQuestion + 1})
+        this.setState({
+            correctAnswers: correctAnswers +1,
+            currentQuestion: currentQuestion + 1,
+            revealAnswer: false,
+            })
     }
 
     onIncorrectSubmit = () => {
@@ -48,11 +52,9 @@ class Quiz extends React.Component{
 
     render(){
         const {navigation} = this.props
-        debugger
         const {questions} = navigation.state.params
         const {totalQuestions, answeredQuestions, correctAnswers, currentQuestion, revealAnswer} = this.state
         
-        console.log(questions)
         if (isEmpty(questions)){
             return(
                 <View><Text> There are no questions in the deck. </Text></View>
@@ -160,7 +162,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 20,
-        backgroundColor: 'black'
     }
 });
 
