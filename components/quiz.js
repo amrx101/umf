@@ -54,6 +54,20 @@ class Quiz extends React.Component{
         this.setState({revealAnswer: true})
     }
 
+    renderButton = (name, callable, buttonStyle) => {
+        return(
+        <View style={{padding:10}}>
+            <Button
+                title={name}
+                onPress={callable}
+                buttonStyle={buttonStyle}
+                containerStyle={{ marginBottom: 20, }}
+            />
+            </View>
+        )
+  };
+
+
     render(){
         const {navigation} = this.props
         const {questions} = navigation.state.params
@@ -98,43 +112,10 @@ class Quiz extends React.Component{
 
                         <View style={{alignItems: 'center', justifyContent: 'space-around', flex: 2}}>
                             <View style={styles.container}>
-                                <View style={{padding:10}}>
-                                    <Button
-                                        title="Correct"
-                                        titleStyle={{ fontWeight: "700" }}
-                                        buttonStyle={{
-                                            backgroundColor: "green",
-                                            width: 300,
-                                            height: 45,
-                                            borderColor: "transparent",
-                                            borderWidth: 0,
-                                            borderRadius: 5
-                                        }}
-                                        onPress={this.onCorrectSubmit}
-                                        containerStyle={{ marginBottom: 20 }}
-                                    />
-                                </View>
-                                
-                                <View style={{padding:10}}>
-                                    <Button
-                                        title="Incorrect"
-                                        titleStyle={{ fontWeight: "700" }}
-                                        buttonStyle={{
-                                            backgroundColor: "red",
-                                            width: 300,
-                                            height: 45,
-                                            borderColor: "transparent",
-                                            borderWidth: 0,
-                                            borderRadius: 5
-                                        }}
-                                        onPress={this.onIncorrectSubmit}
-                                        containerStyle={{ marginTop: 20 }}
-                                    />
-                                </View>
+                                {this.renderButton("Correct", this.onCorrectSubmit, styles.green)}
+                                {this.renderButton("Incorrect", this.onIncorrectSubmit, styles.red)}
                             </View>
-
                         </View>
-
                     </View>
 
                 ) : (
@@ -143,29 +124,9 @@ class Quiz extends React.Component{
 
                         <View style={{alignItems: 'center', justifyContent: 'space-around', flex: 2}}>
                             <View style={styles.container}>
-
-                                <TouchableOpacity onPress={this.startQuiz}>
-                                    <Text style={{
-                                        backgroundColor: '#70dd2f',
-                                        justifyContent: 'center',
-                                        height: 30,
-                                        textAlign: 'center',
-                                        width: 200
-                                    }}>Start Quiz</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={this.stopQuiz}>
-                                    <Text style={{
-                                        backgroundColor: '#ff463f',
-                                        justifyContent: 'center',
-                                        height: 30,
-                                        textAlign: 'center',
-                                        width: 200,
-                                        marginTop: 20
-                                    }}>Back to Deck</Text>
-                                </TouchableOpacity>
-
+                                {this.renderButton("Start Quiz", this.beginQuiz, styles.green)}
+                                {this.renderButton("Stop Quiz", this.stopQuiz, styles.red)}
                             </View>
-
                         </View>
                     </View>
                 )}
@@ -178,6 +139,24 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 20,
+    },
+    green: {
+        backgroundColor: "green",
+        width: 300,
+        height: 45,
+        borderColor: "transparent",
+        borderWidth: 0,
+        borderRadius: 5,
+        padding: 10
+    },
+    red: {
+        backgroundColor: "red",
+        width: 300,
+        height: 45,
+        borderColor: "transparent",
+        borderWidth: 0,
+        borderRadius: 5,
+        padding: 10
     }
 });
 
