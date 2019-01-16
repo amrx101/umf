@@ -29,7 +29,10 @@ class Quiz extends React.Component{
 
     onIncorrectSubmit = () => {
         const {currentQuestion} = this.state
-        this.setState({currentQuestion: currentQuestion+1})
+        this.setState({
+            currentQuestion: currentQuestion+1,
+            revealAnswer: false,
+        })
     }
 
     beginQuiz = () => {
