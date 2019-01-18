@@ -2,7 +2,7 @@ import React from 'react';
 import {Button } from 'react-native-elements';
 import {View, StyleSheet} from 'react-native';
 
-class CustomButton extends React.Cumponent {
+class CustomButton extends React.Component {
 
     render(){
         const {styleIdentifier, name, callable} = this.props
@@ -59,3 +59,5 @@ const styles = StyleSheet.create({
         padding: 10,
     }
 });
+
+export default CustomButton;

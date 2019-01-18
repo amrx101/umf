@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-elements';
+import CustomButton  from '../components/common'
 
 function isEmpty(obj) {
     for (const key in obj) {
@@ -54,20 +55,6 @@ class Quiz extends React.Component{
         this.setState({revealAnswer: true})
     }
 
-    renderButton = (name, callable, buttonStyle) => {
-        return(
-        <View style={{padding:10}}>
-            <Button
-                title={name}
-                onPress={callable}
-                buttonStyle={buttonStyle}
-                containerStyle={{ marginBottom: 20, }}
-            />
-            </View>
-        )
-  };
-
-
     render(){
         const {navigation} = this.props
         const {questions} = navigation.state.params
@@ -112,8 +99,8 @@ class Quiz extends React.Component{
 
                         <View style={{alignItems: 'center', justifyContent: 'space-around', flex: 2}}>
                             <View style={styles.container}>
-                                {this.renderButton("Correct", this.onCorrectSubmit, styles.green)}
-                                {this.renderButton("Incorrect", this.onIncorrectSubmit, styles.red)}
+                                <CustomButton styleIdentifier="green" name="Correct" callable={this.onCorrectSubmit} />
+                                <CustomButton styleIdentifier="red" name="Incorrect" callable={this.onIncorrectSubmit}/>
                             </View>
                         </View>
                     </View>
@@ -124,8 +111,8 @@ class Quiz extends React.Component{
 
                         <View style={{alignItems: 'center', justifyContent: 'space-around', flex: 2}}>
                             <View style={styles.container}>
-                                {this.renderButton("Start Quiz", this.beginQuiz, styles.green)}
-                                {this.renderButton("Stop Quiz", this.stopQuiz, styles.red)}
+                                <CustomButton styleIdentifier="green" name="Start Quiz" callable={this.beginQuiz}/>
+                                <CustomButton styleIdentifier="red" name="Stop Quiz" callable={this.stopQuiz}/>
                             </View>
                         </View>
                     </View>
@@ -139,24 +126,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 20,
-    },
-    green: {
-        backgroundColor: "green",
-        width: 300,
-        height: 45,
-        borderColor: "transparent",
-        borderWidth: 0,
-        borderRadius: 5,
-        padding: 10
-    },
-    red: {
-        backgroundColor: "red",
-        width: 300,
-        height: 45,
-        borderColor: "transparent",
-        borderWidth: 0,
-        borderRadius: 5,
-        padding: 10
     }
 });
 
