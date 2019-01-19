@@ -82,9 +82,14 @@ class Quiz extends React.Component{
                                 {revealAnswer ? (
                                     <View style={{alignItems: 'center'}}>
                                         <Text style={{fontSize: 36}}>{questions[currentQuestion].answer}</Text>
-
+                                        <View style={{alignItems: 'center', justifyContent: 'space-around', flex: 1}}>
+                                        <View >
+                                            <CustomButton styleIdentifier="green" name="Correct" callable={this.onCorrectSubmit} />
+                                            <CustomButton styleIdentifier="red" name="Incorrect" callable={this.onIncorrectSubmit}/>
+                                        </View>
+                                    </View>
                                         
-                                    </View>) : (
+                                </View>) : (
                                     <View style={{alignItems: 'center'}}>
                                         <Text style={{fontSize: 36}}>{questions[currentQuestion].question}</Text>
 
@@ -96,13 +101,6 @@ class Quiz extends React.Component{
                                 )}
                             </View>
                         </View>
-
-                        <View style={{alignItems: 'center', justifyContent: 'space-around', flex: 2}}>
-                            <View style={styles.container}>
-                                <CustomButton styleIdentifier="green" name="Correct" callable={this.onCorrectSubmit} />
-                                <CustomButton styleIdentifier="red" name="Incorrect" callable={this.onIncorrectSubmit}/>
-                            </View>
-                        </View>
                     </View>
 
                 ) : (
@@ -112,7 +110,7 @@ class Quiz extends React.Component{
                         <View style={{alignItems: 'center', justifyContent: 'space-around', flex: 2}}>
                             <View style={styles.container}>
                                 <CustomButton styleIdentifier="green" name="Start Quiz" callable={this.beginQuiz}/>
-                                <CustomButton styleIdentifier="red" name="Stop Quiz" callable={this.stopQuiz}/>
+                                <CustomButton styleIdentifier="red" name="Back To Deck" callable={this.stopQuiz}/>
                             </View>
                         </View>
                     </View>

@@ -14,7 +14,7 @@ class CustomButton extends React.Component {
         }
 
         return(
-            <View style={{padding:10}}>
+            <View style={{padding:30}}>
                 <Button
                     title={name}
                     onPress={callable}
