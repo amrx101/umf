@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
+import { FormLabel, FormInput, Button } from 'react-native-elements'
 import {addCard} from '../utils/api';
-import {addQuestion, receiveDecks} from '../actions/index'
+import {addQuestion} from '../actions/index'
 import { connect } from 'react-redux';
 
 
