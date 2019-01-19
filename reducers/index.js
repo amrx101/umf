@@ -5,7 +5,6 @@ import { combineReducers } from 'redux'
 function decks(state={}, action){
     switch (action.type){
         case RECEIVE_DECKS:
-            debugger
             console.log("RECIEVED...", action)
             console.log("TYPE:", typeof action.decks)
             return {
@@ -25,6 +24,8 @@ function decks(state={}, action){
             )
         case ADD_QUESTION:
             const {title, question, answer} = action.params;
+            let item = state[title]
+            const questions = item["questions"]
             const newQuestions = JSON.parse(JSON.stringify(questions)).concat([ { question, answer } ]);
 
             return {

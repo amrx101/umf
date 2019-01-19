@@ -24,7 +24,7 @@ export function deleteDeck(id){
 
 export function addQuestion(params){
     return{
-        type: ADD_DECK,
+        type: ADD_QUESTION,
         params,
     }
 }

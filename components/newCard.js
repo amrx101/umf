@@ -32,10 +32,9 @@ class AddCard extends React.Component{
         const {dispatch} = this.props
         const params = {title, question, answer}
 
-        addCard({title: title, card: card}).then(
-            decks => dispatch(receiveDecks(JSON.parse(decks)))).then(
-                () => this.props.navigation.goBack()
-            );
+        addCard({title: title, card: card}).then((res)=>{dispatch(addQuestion(params))}).then(
+            () => this.props.navigation.goBack()
+        )
     }
 
     renderForm = (label, callable, field) => {
