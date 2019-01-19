@@ -81,7 +81,7 @@ class Quiz extends React.Component{
                             <View>
                                 {revealAnswer ? (
                                     <View style={{alignItems: 'center'}}>
-                                        <Text style={{fontSize: 36}}>{questions[currentQuestion].answer}</Text>
+                                        <Text style={{fontSize: 18}}>{questions[currentQuestion].answer}</Text>
                                         <View style={{alignItems: 'center', justifyContent: 'space-around', flex: 1}}>
                                         <View >
                                             <CustomButton styleIdentifier="green" name="Correct" callable={this.onCorrectSubmit} />
@@ -91,7 +91,7 @@ class Quiz extends React.Component{
                                         
                                 </View>) : (
                                     <View style={{alignItems: 'center'}}>
-                                        <Text style={{fontSize: 36}}>{questions[currentQuestion].question}</Text>
+                                        <Text style={{fontSize: 18}}>{questions[currentQuestion].question}</Text>
 
                                         <TouchableOpacity onPress={this.showAnswer}>
                                             <Text style={{fontSize: 18, color: '#ff463f'}}>Answer</Text>
